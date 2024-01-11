@@ -43,66 +43,93 @@ backgroundColor: Colors.black,
       backgroundColor: Colors.black,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Padding(
-            padding: const EdgeInsets.all(18.0),
-            child: Column(
-              children: [
-                Text('Title:',style: TextStyle(color:Colors.white),),
-                Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white38,
-                      borderRadius: BorderRadius.circular(10)
-                    ) ,
-                  child: TextField(
-                    controller: titleController,style: TextStyle(color: Colors.white),
-                    decoration:  InputDecoration(
-                      border: OutlineInputBorder(
-                        gapPadding: 8,
+          padding: const EdgeInsets.all(18.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text('Title:',style: TextStyle(color:Colors.white),),
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                        color: Colors.white38,
                         borderRadius: BorderRadius.circular(10)
-                      )
+                    ) ,
+                    child: TextField(
+                      controller: titleController,style: TextStyle(color: Colors.white),
+                      decoration:  InputDecoration(
+                          border: OutlineInputBorder(
+                              gapPadding: 8,
+                              borderRadius: BorderRadius.circular(10)
+                          )
+                      ),
+
                     ),
+                  ),
+                ],
+              ),
 
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text('Description:',style: TextStyle(color:Colors.white),),
                   ),
-                ),
-                Text('Description:',style: TextStyle(color:Colors.white),),
-                Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white38,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: TextField(
-                    controller: descriptionController,style: TextStyle(color: Colors.white),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white38,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: TextField(
+                      controller: descriptionController,style: TextStyle(color: Colors.white),
 
+                    ),
                   ),
-                ),
-                Text('SubDescription:',style: TextStyle(color:Colors.white),),
-                Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white38,
-                    borderRadius: BorderRadius.circular(10)),
-                  child: TextField(
-                    controller:subDescriptionController,style: TextStyle(color: Colors.white),
+                ],
+              ),
 
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text('SubDescription:',style: TextStyle(color:Colors.white),),
                   ),
-                ),
-                Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Text(
-                        '${selectedDate.toLocal()}'.split(' ')[0],
-                        style: TextStyle(fontSize: 15,color: Colors.white, fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(height: 20),
-                      ElevatedButton(
-                        onPressed: () => _selectDate(context),
-                        child: Text('Select Date'),
-                      ),
-                    ],
+                  Container(
+                    decoration: BoxDecoration(
+                        color: Colors.white38,
+                        borderRadius: BorderRadius.circular(10)),
+                    child: TextField(
+                      controller:subDescriptionController,style: TextStyle(color: Colors.white),
+
+                    ),
                   ),
-                ),
-                RoundedButton(onPressed: (){
+                ],
+              ),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+
+                children: <Widget>[
+                  Text(
+                    '${selectedDate.toLocal()}'.split(' ')[0],
+                    style: TextStyle(fontSize: 15,color: Colors.white, fontWeight: FontWeight.bold),
+                  ),
+                  ElevatedButton(
+                    onPressed: () => _selectDate(context),
+                    child: Text('Select Date'),
+                  ),
+                ],
+              ),
+              Center(
+                child: RoundedButton(onPressed: (){
                   String title = titleController.text;
                   String description = descriptionController.text;
                   String subDescription = subDescriptionController.text;
@@ -123,9 +150,9 @@ backgroundColor: Colors.black,
                   Navigator.pop(context);
                   }
                 }, title: 'Add',
-                 )
-              ],
-            ),
+                 ),
+              )
+            ],
           ),
         ),
       ),

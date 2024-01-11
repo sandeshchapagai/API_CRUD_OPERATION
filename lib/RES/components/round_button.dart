@@ -19,7 +19,7 @@ class RoundedButton extends StatelessWidget {
         width: 200,
         height: 50,
         child:
-            Center(child: loading ? CircularProgressIndicator(color: Colors.white,) : Text(title)),
+            Center(child: loading ? const CircularProgressIndicator(color: Colors.white,) : Text(title)),
       ),
     );
   }
