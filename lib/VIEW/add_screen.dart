@@ -43,7 +43,7 @@ backgroundColor: Colors.black,
       backgroundColor: Colors.black,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(18.0),
+          padding: const EdgeInsets.only(left: 18.0,right: 18.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -88,6 +88,12 @@ backgroundColor: Colors.black,
                     ),
                     child: TextField(
                       controller: descriptionController,style: TextStyle(color: Colors.white),
+                      decoration:  InputDecoration(
+                          border: OutlineInputBorder(
+                              gapPadding: 8,
+                              borderRadius: BorderRadius.circular(10)
+                          )
+                      ),
 
                     ),
                   ),
@@ -108,6 +114,12 @@ backgroundColor: Colors.black,
                         borderRadius: BorderRadius.circular(10)),
                     child: TextField(
                       controller:subDescriptionController,style: TextStyle(color: Colors.white),
+                      decoration:  InputDecoration(
+                          border: OutlineInputBorder(
+                              gapPadding: 8,
+                              borderRadius: BorderRadius.circular(10)
+                          )
+                      ),
 
                     ),
                   ),
