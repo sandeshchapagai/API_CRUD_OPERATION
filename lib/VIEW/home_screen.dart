@@ -99,7 +99,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     final datas = data[index];
                     var title = datas['owner_name'];
                     var description = datas['pet_name'];
-                    var subDescription = datas['pet_name'];
+                    var subDescription = datas['apt_notes'];
+                    var date=datas['apt_date'];
                     final id =datas['id'];
                     return  Card(
                       surfaceTintColor: Colors.black,
@@ -107,65 +108,71 @@ class _MyHomePageState extends State<MyHomePage> {
                           child: ListView(
                           //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           //   crossAxisAlignment: CrossAxisAlignment.start,
+
                             children: [
-                              Column(
+                              SizedBox(height: 15,),
+                              Text(date.substring(0, 10),textAlign:TextAlign.right,style: TextStyle(color: Colors.white,fontWeight: FontWeight.w300,fontSize:10),),
+                              Padding(
+                                padding: const EdgeInsets.all(12.0),
+                                child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Row(
-                                    children: [
-                                      Text('ID:\t\t\t',
-                                        style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
-                                      ),
-                                      Text(id.toString(),
-                                        style: TextStyle(color: Colors.white),
-                                      ),
-                                    ],
-                                  ),
-                                  Row(
-                                    children: [
-                                      Text('Title:\t\t\t',
-                                        style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
-                                      ),
-                                      Text(
-                                         title,
-                                        style: TextStyle(color: Colors.white),
-                                      ),
-                                    ],
-                                  ),
-                                  // Spacer(),
-                                  Row(
-                                    children: [
-                                      Text('Description:\t\t\t',
-                                        style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
-                                      ),
-                                      Text(
-                                         description,
-                                        style: TextStyle(color: Colors.white),
-                                      ),
-                                    ],
-                                  ),
-                                  // Spacer(),
-                                  Row(
-                                    children: [
-                                      Text(
-                                        'Sub_descript:  ',
-                                        style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
-                                      ),
-                                      Text(
-                                         subDescription,
-                                        style: TextStyle(color: Colors.white),
-                                      ),
-                                    ],
-                                  ),
-                                ],
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Text('ID:\t\t\t',
+                                          style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
+                                        ),
+                                        Text(id.toString(),
+                                          style: TextStyle(color: Colors.white),
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        Text('Title:\t\t\t',
+                                          style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
+                                        ),
+                                        Text(
+                                           title,
+                                          style: TextStyle(color: Colors.white),
+                                        ),
+                                      ],
+                                    ),
+                                    // Spacer(),
+                                    Row(
+                                      children: [
+                                        Text('Description:\t\t\t',
+                                          style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
+                                        ),
+                                        Text(
+                                           description,
+                                          style: TextStyle(color: Colors.white),
+                                        ),
+                                      ],
+                                    ),
+                                    // Spacer(),
+                                    Row(
+                                      children: [
+                                        Text(
+                                          'Sub_descript:  ',
+                                          style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
+                                        ),
+                                        Text(
+                                           subDescription,
+                                          style: TextStyle(color: Colors.white),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
                               ),
+                              SizedBox(height: 30,),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   IconButton(
                                     onPressed: () {
                                       String date='2021-01-9';
-
                                       TextEditingController updateTitleController = TextEditingController(text: titleController.text);
                                       TextEditingController updateDescriptionController = TextEditingController(text: descriptionController.text);
                                       TextEditingController updateSubDescriptionController= TextEditingController( text: updateDescriptionController.text );

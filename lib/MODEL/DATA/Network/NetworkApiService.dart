@@ -27,7 +27,7 @@ import '../app_exeptions.dart';
     }
   }
 
-  void addData(String title, String subtitle, description, String date) async {
+  void addData(String title, String subtitle,String description, String date) async {
     const apikey = "https://fyp-api.aakashacharya.com.np/api/v1/appointment/create";
     Map<String, dynamic> dataToSend = {
       "owner_name": title,
