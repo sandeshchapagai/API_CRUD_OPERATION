@@ -77,7 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 Text(
                   'Todays Task',
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
                 ),
                 Spacer(),
                 TextButton(
@@ -101,37 +101,66 @@ class _MyHomePageState extends State<MyHomePage> {
                     var description = datas['pet_name'];
                     var subDescription = datas['pet_name'];
                     final id =datas['id'];
-                    return Container(
-                        height: 200,
-                        child: Card
-                          (
-                          surfaceTintColor: Colors.black,
+                    return  Card(
+                      surfaceTintColor: Colors.black,
                           color: Colors.black,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
+                          child: ListView(
+                          //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          //   crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                 children: [
-                                  Text('ID:'+id.toString(),
-                                    style: TextStyle(color: Colors.white),
+                                  Row(
+                                    children: [
+                                      Text('ID:\t\t\t',
+                                        style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
+                                      ),
+                                      Text(id.toString(),
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                    ],
                                   ),
-                                  Text(
-                                    'Title:  ' + title,
-                                    style: TextStyle(color: Colors.white),
+                                  Row(
+                                    children: [
+                                      Text('Title:\t\t\t',
+                                        style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
+                                      ),
+                                      Text(
+                                         title,
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                    ],
                                   ),
                                   // Spacer(),
-                                  Text(
-                                    'Description:  ' + description,
-                                    style: TextStyle(color: Colors.white),
+                                  Row(
+                                    children: [
+                                      Text('Description:\t\t\t',
+                                        style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
+                                      ),
+                                      Text(
+                                         description,
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                    ],
                                   ),
                                   // Spacer(),
-                                  Text(
-                                    'Sub_descript:  ' + subDescription,
-                                    style: TextStyle(color: Colors.white),
+                                  Row(
+                                    children: [
+                                      Text(
+                                        'Sub_descript:  ',
+                                        style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
+                                      ),
+                                      Text(
+                                         subDescription,
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                    ],
                                   ),
                                 ],
                               ),
                               Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   IconButton(
                                     onPressed: () {
@@ -143,21 +172,80 @@ class _MyHomePageState extends State<MyHomePage> {
                                       showDialog(
                                         context: context,
                                         builder: (ctx) => AlertDialog(
-                                          title: const Text("Edit"),
+                                          surfaceTintColor: Colors.black,
+                                          backgroundColor: Colors.white,
+                                          title: Center(child: const Text("Edit")),
                                           content: Column(
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                             children: [
-                                              Text('title'),
-                                              TextField(
-                                                controller: updateTitleController,
+                                              Column(
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                children: [
+                                                  Text('title'),
+                                                  Container(
+                                                    decoration: BoxDecoration(
+                                                        color: Colors.black26,
+                                                        borderRadius: BorderRadius.circular(10)
+                                                    ) ,
+                                                    child: TextField(
+                                                      controller: updateTitleController,
+                                                      decoration:InputDecoration(
+                                                          border: OutlineInputBorder(
+                                                              gapPadding: 8,
+                                                              borderRadius: BorderRadius.circular(10)
+                                                          )
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
                                               ),
-                                              Text('Description'),
-                                              TextField(
-                                                controller: updateDescriptionController,
+
+                                              Column(
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                children: [
+                                                  Text('Description'),
+                                                  Container(
+                                                    decoration: BoxDecoration(
+                                                        color: Colors.black26,
+                                                        borderRadius: BorderRadius.circular(10)
+                                                    ) ,
+                                                    child: TextField(
+                                                      controller: updateDescriptionController,
+                                                      decoration:InputDecoration(
+                                                          border: OutlineInputBorder(
+                                                              gapPadding: 8,
+                                                              borderRadius: BorderRadius.circular(10)
+                                                          )
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
                                               ),
-                                              Text('subDescription'),
-                                              TextField(
-                                                controller: updateSubDescriptionController,
+
+                                              Column(
+                                                mainAxisAlignment: MainAxisAlignment.start,
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                children: [
+                                                  Text('subDescription'),
+                                                  Container(
+                                                    decoration: BoxDecoration(
+                                                        color: Colors.black26,
+                                                        borderRadius: BorderRadius.circular(10)
+                                                    ) ,
+                                                    child: TextField(
+                                                      controller: updateSubDescriptionController,
+                                                      decoration:InputDecoration(
+                                                          border: OutlineInputBorder(
+                                                              gapPadding: 8,
+                                                              borderRadius: BorderRadius.circular(10)
+                                                          )
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
                                               ),
+
                                               TextButton(
                                                 onPressed: () {
                                                   upData(
@@ -170,12 +258,14 @@ class _MyHomePageState extends State<MyHomePage> {
                                                   Navigator.pop(context, true);
                                                   fetchdata();
                                                 },
-                                                child: Container(
-                                                  decoration: const BoxDecoration(
-                                                      color: Colors.blue,
-                                                      shape: BoxShape.circle),
-                                                  padding: const EdgeInsets.all(14),
-                                                  child: const Text("okay"),
+                                                child: Center(
+                                                  child: Container(
+                                                    decoration: const BoxDecoration(
+                                                        color: Colors.blue,
+                                                        shape: BoxShape.circle),
+                                                    padding: const EdgeInsets.all(14),
+                                                    child: const Text("okay",style: TextStyle(color: Colors.white),),
+                                                  ),
                                                 ),
                                               ),
                                             ],
@@ -202,7 +292,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               )
                             ],
                           ),
-                        ));
+                        );
                   }, gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2, // Number of columns
                 crossAxisSpacing: 8.0, // Spacing between columns
