@@ -1,9 +1,6 @@
 import 'dart:convert';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-// import 'package:mvvm/DATA/Network/BaseApiServices.dart';
 import 'package:mvvm/UTILS/Routes/routes_name.dart';
 
 import '../MODEL/DATA/Network/NetworkApiService.dart';
@@ -41,7 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 style: TextStyle(color: Colors.white),
               ),
 
-              CircleAvatar()
+              CircleAvatar(child: Icon(Icons.watch_later,color: Colors.black,),)
             ],
           ),
         ),
